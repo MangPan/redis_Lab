@@ -267,7 +267,7 @@ Hash는 하나의 key 안에 field-value를 저장하는 자료형이다.
 ```txt
 user:1
 post:10
-combo:15
+product:15
 ```
 
 ### field 저장
@@ -599,12 +599,12 @@ ZREM ranking:posts post:1
 DEL ranking:posts
 ```
 
-HotTag에 연결하면:
+Redis Lab 랭킹 예시:
 
 ```txt
-ranking:combos:daily
-ranking:combos:weekly
-ranking:combos:all
+ranking:posts:daily
+ranking:posts:weekly
+ranking:posts:all
 ```
 
 점수 예시:
@@ -619,9 +619,9 @@ SNS 클릭 +5
 Redis 명령 예시:
 
 ```redis
-ZINCRBY ranking:combos:daily 1 combo:1
-ZINCRBY ranking:combos:daily 3 combo:1
-ZREVRANGE ranking:combos:daily 0 9 WITHSCORES
+ZINCRBY ranking:posts:daily 1 post:1
+ZINCRBY ranking:posts:daily 3 post:1
+ZREVRANGE ranking:posts:daily 0 9 WITHSCORES
 ```
 
 ---
